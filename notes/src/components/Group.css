@@ -1,0 +1,31 @@
+.group-component {
+    background: #1d1f27;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.group-component::before{
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, white 0%, var(--clr) 35%, transparent 70%);
+    height: 7.5rem;
+    width: 7.5rem;
+    opacity: 0;
+    transition: 0.5s, top 0s, left 0s;
+}
+
+.group-component:hover::before{
+    opacity: 1;
+}
+
+.group-component::after{
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: 0.5rem;
+    background: #0b0c0fe6;
+}
