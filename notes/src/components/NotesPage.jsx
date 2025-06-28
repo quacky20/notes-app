@@ -23,39 +23,39 @@ function NotesPage() {
     const colorOptions = [
         {
             id: "color-yellow",
-            colorHeader: "#FFEFBE",
+            colorHeader: "#91DDCF",
             colorBody: "#FFF5DF",
-            colorText: "#594A3A",
+            colorText: "#A5E9DC",
         },
         {
             id: "color-blue",
-            colorHeader: "#B8E0FF",
+            colorHeader: "#95D2B3",
             colorBody: "#E3F2FF",
-            colorText: "#2C5282",
+            colorText: "#A8E8C2",
         },
         {
             id: "color-green",
-            colorHeader: "#C6F6D5",
+            colorHeader: "#F3D0D7",
             colorBody: "#E9FFF0",
-            colorText: "#22543D",
+            colorText: "#FFD9E0",
         },
         {
             id: "color-pink",
-            colorHeader: "#FED7E2",
+            colorHeader: "#AC87C5",
             colorBody: "#FFF5F7",
-            colorText: "#97266D",
+            colorText: "#C8A0E0",
         },
         {
             id: "color-purple",
-            colorHeader: "#E9D8FD",
+            colorHeader: "#FF8080",
             colorBody: "#FAF5FF",
-            colorText: "#553C9A",
+            colorText: "#FFA3A3",
         },
         {
             id: "color-orange",
-            colorHeader: "#FED7B7",
+            colorHeader: "#EEC373",
             colorBody: "#FFF7ED",
-            colorText: "#C05621",
+            colorText: "#FFD285",
         }
     ]
 
@@ -107,7 +107,7 @@ function NotesPage() {
     if (error) {
         return (
             <div className='notes-area h-[calc(100vh-5rem)] z-0 flex items-center justify-center'>
-                <div className='text-red-500'>Error: {error}</div>
+                <div className='text-red-400'>An error occured, please refresh page!</div>
             </div>
         )
     }

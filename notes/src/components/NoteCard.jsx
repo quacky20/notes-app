@@ -119,6 +119,7 @@ function NoteCard({ note }) {
                 borderColor: colours.colorBody,
                 left: `${position.x}px`,
                 top: `${position.y}px`,
+                boxShadow: `0 0 10px ${colours.colorHeader}`
             }}
         >
             <button 
@@ -131,11 +132,11 @@ function NoteCard({ note }) {
                     </div>    
             </button>
             <div
-                className='card-header rounded-t-[5px] flex justify-between items-center select-none min-h-9'
-                style={{ backgroundColor: colours.colorHeader }}
+                className='card-header rounded-t-[5px] flex justify-between items-center select-none min-h-9 text-white px-2'
+                style={{ background: `linear-gradient(to right, ${colours.colorHeader}, ${colours.colorText}` }}
                 onMouseDown={mouseDown}
             >
-                
+                {text.length} / 1000
             </div>
             <div className='card-body p-2'>
                 <textarea
@@ -153,6 +154,7 @@ function NoteCard({ note }) {
                     onFocus={() => {
                         setZIndex(cardRef.current)
                     }}
+                    maxLength={1000}
                 ></textarea>
             </div>
         </div>

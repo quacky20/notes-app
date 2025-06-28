@@ -156,6 +156,7 @@ export const NotesProvider = ({ children }) => {
         catch(err) {
             console.error('Error updating note:', err)
             setError(err.message)
+
             throw err
         }
     }
@@ -176,6 +177,9 @@ export const NotesProvider = ({ children }) => {
 
             setError(err.message)
             throw err
+        }
+        finally{
+            loadData()
         }
     }
 

@@ -35,8 +35,8 @@ function Menu({ isMenuOpen }) {
     }
 
     const predefinedColors = [
-        '#4fe2ff', '#ff2727', '#27ff27', '#ffff27',
-        '#ff27ff', '#ff8c27', '#8c27ff', '#27ffff'
+        '#49FF00', '#00CAFF', '#FFDB00', '#FF6D28',
+        '#EA047E', '#00FFD1', '#9900F0', '#FF0000'
     ];
 
     useEffect(() => {
