@@ -6,6 +6,7 @@ import { useNotes } from './NotesContext';
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const barRef = useRef(null);
+    const menuRef = useRef(null)
 
     const { activeGroupId, getActiveGroup, getNotesForGroup } = useNotes()
 
@@ -34,8 +35,26 @@ function Navbar() {
         };
     }, []);
 
+    useEffect(() => {
+        const handleClicksOutside = (e) => {
+            if (isMenuOpen &&
+                menuRef.current &&
+                barRef.current &&
+                !menuRef.current.contains(e.target) &&
+                !barRef.current.contains(e.target)) {
+                setIsMenuOpen(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClicksOutside)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClicksOutside)
+        }
+    }, [isMenuOpen])
+
     return (
-        <div>
+        <div className='select-none'>
             <div id='navbar' className='flex items-center justify-between' ref={barRef}>
                 <div className="relative z-1 text-white text-3xl pl-5 select-none flex flex-row gap-5 items-center">
                     {activeGroup ? activeGroup.name : 'All Notes'}
@@ -67,7 +86,7 @@ function Navbar() {
                     <div className='material-symbol text-3xl'>menu</div>
                 </div>
             </div>
-            <div className=''>
+            <div ref={menuRef}>
                 <Menu isMenuOpen={isMenuOpen} />
             </div>
         </div>

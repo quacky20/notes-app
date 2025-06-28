@@ -126,13 +126,22 @@ export const NotesProvider = ({ children }) => {
                 ...noteData
             })
 
-            setNotes(prev => [...prev, newNote])
-            return newNote
+            const transformedNote = {
+                ...newNote,
+                colors: JSON.parse(newNote.colors),
+                position: JSON.parse(newNote.position)
+            }
+
+            setNotes(prev => [...prev, transformedNote])
+            return transformedNote
         }
         catch(err) {
             console.error('Error adding note:', err)
             setError(err.message)
             throw err
+        }
+        finally{
+            loadData()
         }
     }
 
@@ -153,12 +162,18 @@ export const NotesProvider = ({ children }) => {
 
     const deleteNote = async (noteId) => {
         try{
+            setNotes(prev => {
+                const filtered = prev.filter(note => note.$id !== noteId && note.id !== noteId)
+                return filtered
+            })
+            
             await deleteNoteDB(noteId)
-
-            setNotes(prev => prev.filter(note => note.$id !== noteId))
         }
         catch(err) {
             console.error('Error deleting note:', err)
+
+            loadData()
+
             setError(err.message)
             throw err
         }

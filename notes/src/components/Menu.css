@@ -1,11 +1,11 @@
-.group-component {
+.add-btn {
     background: #1d1f27;
     overflow: hidden;
     position: relative;
     border-radius: 0.5rem;
 }
 
-.group-component::before{
+.add-btn::before{
     content: '';
     position: absolute;
     top: var(--y);
@@ -18,18 +18,14 @@
     transition: 0.5s, top 0s, left 0s;
 }
 
-.group-component:hover::before{
+.add-btn:hover::before{
     opacity: 1;
 }
 
-.group-component::after{
+.add-btn::after{
     content: '';
     position: absolute;
     inset: 1px;
     border-radius: 0.5rem;
     background: #0b0c0fe6;
-}
-
-.card-blur{
-    background-color: var(--clr);
 }
